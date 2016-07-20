@@ -34,8 +34,12 @@ class Producto(models.Model):
 		super(Producto, self).save(*args, **kwargs)
 
 	def get_thum(self):
-		img = ProductoImagen.objects.filter(producto=self).order_by('pk')[0]
-		img = get_thumbnail(img.foto, '450x350', quality=80)
+		try:
+			img = ProductoImagen.objects.filter(producto=self).order_by('pk')[0]
+		except Exception, e:
+			img = None
+		if img:
+			img = get_thumbnail(img.foto, '450x350', quality=80)
 		return img
 
 	def get_en_oferta(self):
@@ -113,7 +117,6 @@ class ProductoVariacion(models.Model):
 	precio_minorista = models.DecimalField(max_digits=10,decimal_places=2,null=True,blank=True)
 	oferta = models.PositiveIntegerField(default=0)
 	precio_oferta = models.DecimalField(max_digits=10,decimal_places=2,null=True,blank=True)
-	stock = models.PositiveIntegerField(default=0)
 
 	def __unicode__(self):
 		return "%s - %s" %(self.producto,self.precio_minorista)

@@ -10,6 +10,9 @@ class Color(models.Model):
 	hexdecimal = models.CharField(max_length=10,blank=True)	
 	descripcion = models.TextField(blank=True,null=True)
 	slug = models.SlugField(max_length=120,unique=True,editable=False,blank=True,null=True)
+	class Meta:
+		verbose_name = "Color"
+		verbose_name_plural = "Colores"
 
 	def __unicode__(self):
 		return self.nombre
@@ -35,3 +38,4 @@ class Talla(models.Model):
 class TipoCambio(models.Model):
 	fecha = models.DateField(auto_now_add=True)
 	cambio = models.DecimalField(max_digits=10,decimal_places=2,null=True,blank=True)
+    

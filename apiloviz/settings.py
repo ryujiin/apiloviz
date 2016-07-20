@@ -43,7 +43,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'sorl.thumbnail',
     #mis apps
+    'carro',
     'catalogo',
+    'cliente',
+    'pedido',
+    'ubigeo',
     'utiles',
 ]
 
