@@ -11,6 +11,7 @@ eggs
 log
 parts
 apiloviz/public/media/cache/*
+apiloviz/public/media/productos/*
 apiloviz/public/media/slider/*
 tmp
 .DS_Store
