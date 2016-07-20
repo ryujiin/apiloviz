@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #apps de terceros
     'rest_framework',
+    'sorl.thumbnail',
+    #mis apps
+    'catalogo',
+    'utiles',
 ]
 
 MIDDLEWARE_CLASSES = [
