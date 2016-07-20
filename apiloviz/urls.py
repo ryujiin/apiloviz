@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 
+import settings
+
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
@@ -24,3 +26,8 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^admin/', admin.site.urls),
 ]
+if settings.DEBUG:
+    urlpatterns = [
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
+        {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+] + urlpatterns
