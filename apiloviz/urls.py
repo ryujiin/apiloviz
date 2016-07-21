@@ -19,12 +19,20 @@ from django.contrib import admin
 import settings
 
 from rest_framework.routers import DefaultRouter
+from catalogo.views import *
 
 router = DefaultRouter()
+router.register(r'busqueda', ProductoBusquedaViewSet,'busqueda')
+router.register(r'categorias', CategoriaViewsets,'categorias')
+router.register(r'productoLista', ProductoListaViewsets,'producto lista')
+
+
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
+    url(r'^api/', include(router.urls)),
     url(r'^admin/', admin.site.urls),
+    url(r'^search/', include('haystack.urls')),
+    url(r'^',include('cms.urls')),    
 ]
 if settings.DEBUG:
     urlpatterns = [

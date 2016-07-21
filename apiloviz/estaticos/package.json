@@ -1,0 +1,10 @@
+{
+  "name": "loviz",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+  },
+  "scripts": {
+    "styl": "stylus --use nib --watch generador_css/app.styl --out ../estaticos/css/"
+  }
+}

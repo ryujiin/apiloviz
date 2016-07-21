@@ -1,0 +1,164 @@
+@media (min-width: 480px)
+	header
+		.header-mobil
+			.logo-mobil
+				width 30%
+				margin 0 35%
+			a
+				.texto
+					display inline
+	.mini-cart
+		padding-right 20px!important
+		.mini-cart-label-movil
+			display inline-block
+		.mini-cart-items
+			top 18px		
+	.producto-single
+		.imagenes_producto
+			#galeria_full
+				display block
+			#galeria_movil
+				display none!important
+	
+@media (min-width: 768px)
+	.catalogo
+		.refinar
+			display none
+		.section-refinamiento
+			display block
+			aside
+				&.siguiendo
+					position fixed
+					width 25%
+					top 90px
+		.section-main
+			border-left 1px solid #eee
+	.lista-productos 
+		.productos 
+			figure
+				min-height 160px
+	.carro_page
+		.btn
+			width initial!important
+		.lineas_carro
+			margin-top 10px
+			.etiqueta_mobil
+				display none
+			.etiquetas
+				display flex
+				padding 10px 0
+				border-bottom 2px solid #f4f4f4
+				span
+					font-weight 700
+					text-transform uppercase
+					font-family f_imprenta
+					letter-spacing 1px
+				.hiden
+					display none
+			.lineas_items
+				border-bottom 1px solid rgba(6, 20, 2, 0.52)
+				.linea
+					display flex
+					position relative
+					border-bottom 1px solid #f4f4f4
+					padding 20px 0
+				.img_linea
+					width 15%
+				.detalle_linea
+					padding-top 0
+					width 30%
+				.subtotal_linea
+					margin-top 15px
+					.etiqueta_mobil
+						display none
+				.acciones_linea
+					border none
+			.img_linea
+				width 15%				
+			.detalle_linea
+				width 30%
+				padding-left 60px
+			.precio_linea,.cantidad_linea
+				width 15%
+				text-align center
+			.subtotal_linea,.acciones_linea
+				width 15%			
+	.paso_pago .panel_seccion .nav.nav-tabs li
+		width initial!important
+@media (min-width: 992px)
+	#footer
+		.footer-block-menu
+			.nav
+				display block
+	#header
+		position absolute
+		&.fijo
+			position fixed!important
+			.header-utility
+				display none
+	header
+		.header-mobil
+			display none
+		.header-utility
+			display block
+		.header-global
+			height 5.4em
+			.primary-logo
+				display inline-block
+				float left
+				margin 20px
+			.right-nav-btns
+				display block
+		#navigation
+			transform none
+			position initial
+			height initial
+			overflow auto
+			max-width inherit
+			display inline-block
+			width inherit
+			.primary-nav
+				ul
+					li
+						float left
+						border-bottom none
+						line-height 66px
+	.mini-cart
+		float right
+		line-height 5pc
+		z-index 200
+		padding 0 25px
+		height 100%
+		font-family f_imprenta
+		color #000
+		letter-spacing 1px
+		&:hover
+			opacity 0.7
+			cursor pointer
+			background #f4f4f4
+		.mini-cart-label
+			display inline-block
+		.mini-cart-label-movil		
+			display none
+		.mini-cart-container .icon-cart-stripe
+			font-size 1.4em
+			vertical-align text-bottom
+		.mini-cart-items
+			color #fff
+			width: 20px;
+			display: inline-block;
+			line-height: 20px;
+			text-align: center;
+			border-radius: 10px;
+			position: absolute;
+			right: 10px;
+			top: 20px;
+			font-weight: 700;
+			font-size: .8em;
+	.lista-productos 
+		.productos 
+			figure
+				overflow hidden				
+	#wrapper
+		padding-top 93pt
+		

@@ -42,10 +42,12 @@ INSTALLED_APPS = [
     #apps de terceros
     'rest_framework',
     'sorl.thumbnail',
+    'haystack',
     #mis apps
     'carro',
     'catalogo',
     'cliente',
+    'cms',    
     'pedido',
     'ubigeo',
     'utiles',
@@ -140,8 +142,17 @@ STATIC_ROOT = location('public/static')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    location('staticos'),
+    location('estaticos'),
 )
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': 'http://127.0.0.1:8983/solr'
+        # ...or for multicore...
+        # 'URL': 'http://127.0.0.1:8983/solr/mysite',
+    },
+}
 
 try:
     from .local import *

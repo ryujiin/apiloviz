@@ -100,7 +100,7 @@ class Categoria(models.Model):
 	imagen = models.ImageField(upload_to='categorias',blank=True,null=True,max_length=250)
 
 	def __unicode__(self):
-		return self.slug
+		return '%s %s' %(self.seccion,self.nombre)
 
 	def save(self, *args, **kwargs):
 		if self.padre:
