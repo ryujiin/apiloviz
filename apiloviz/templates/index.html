@@ -19,16 +19,31 @@
   <link rel="stylesheet" href="{% static "css/app.css" %}" />
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 </head>
-<body id="" class="">
+<body id="default" class="mobile-layout">
   <header>
     {%include 'header/header.html'%}
   </header>
-  <div id="page">
-    <h3>Enrique</h3>
-  </div>
-  <footer></footer>
-  <div class="includes_js"></div>
+  <div id="wrapper">
+      <div id="main">
+        <div id="contenido">
+          {%block contenido%}
+          {%endblock%}
+        </div>
+      </div>      
+      <div id="footer">
+        <footer>
+          {%include 'footer/footer.html'%}
+        </footer>
+      </div>
+    </div>
+    <div class="includes_js">
+      {%include 'templatejs/page_tlp_js.html'%}
+      {%include 'templatejs/catalogo_tlp_js.html'%}
+      {% include 'templatejs/carro_tlp_js.html' %}
+      {% include 'templatejs/user_tlp_js.html' %}
+      {% include 'templatejs/productosingle_tlp_js.html' %}
+      {% include 'templatejs/procesar_tlp_js.html' %}
+    </div>
   <script data-main="{% static 'js/main' %}" src="{% static 'bower_components/requirejs/require.js' %}"></script>
-
 </body>
 </html>

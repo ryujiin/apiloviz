@@ -20,19 +20,44 @@ import settings
 
 from rest_framework.routers import DefaultRouter
 from catalogo.views import *
+from cliente.views import *
+from carro.views import *
+from cms.views import *
+from utiles.views import *
+from pedido.views import *
+from ubigeo.views import *
 
 router = DefaultRouter()
-router.register(r'busqueda', ProductoBusquedaViewSet,'busqueda')
-router.register(r'categorias', CategoriaViewsets,'categorias')
-router.register(r'productoLista', ProductoListaViewsets,'producto lista')
 
+#router.register(r'productoLista', ProductoListaViewsets,'producto lista')
+
+router.register(r'producto/lista', ProductoListaViewsets,'productos Lista')
+router.register(r'producto/single', ProductoSingleViewsets,'productos single')
+router.register(r'categoria', CategoriaViewsets,'categorias')
+
+
+router.register(r'carro/lineas',LineasViewsets,'lineas')
+router.register(r'cmsweb/carrusel',CarruselViewsets,'carruseles')
+router.register(r'cmsweb/pages',PageViewsets,'pages')
+router.register(r'cmsweb/menus',MenuViewsets,'menus')
+router.register(r'colores',ColorViewsets,'coleres')
+router.register(r'tallas',TallasViewsets,'tallas')
+router.register(r'pedidos',PedidoViewSet,'pedidos')
+router.register(r'ubigeo',RegionViewset,'ubigeo')
+router.register(r'cliente/direcciones',DireccionViewsets,'direcciones')
+router.register(r'metodos_envio',MetodoEnvioViewSet,'mentodos_envios')
+router.register(r'comentarios',ComentarioViewSet,'comentarios')
+router.register(r'comentarioimgs',ComentarioImagenViewSet,'comentarios_imagenes')
+router.register(r'cliente/suscrito',SuscritoViewset,'suscritos')
 
 
 urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^admin/', admin.site.urls),
     url(r'^search/', include('haystack.urls')),
-    url(r'^',include('cms.urls')),    
+    url(r'^api/user/perfil/$',PerfilUserViewSet.as_view(),name='prefil_user'),
+    url(r'^api/carro/', include('carro.urls')),    
+    url(r'^',include('cms.urls')),
 ]
 if settings.DEBUG:
     urlpatterns = [

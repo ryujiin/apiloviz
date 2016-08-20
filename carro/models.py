@@ -107,7 +107,6 @@ class Carro(models.Model):
 
 class LineaCarro(models.Model):
 	carro = models.ForeignKey(Carro,related_name="lineas")
-	producto = models.ForeignKey(Producto,blank=True,null=True)
 	variacion = models.ForeignKey(ProductoVariacion,blank=True,null=True)
 	cantidad = models.PositiveIntegerField(default=1)
 	date_created = models.DateTimeField(auto_now_add=True)

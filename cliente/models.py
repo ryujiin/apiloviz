@@ -44,8 +44,7 @@ class Comentario(models.Model):
 	creado = models.DateTimeField(auto_now_add=True)
 	email_invitado = models.CharField(max_length=100,blank=True,null=True)
 	recomendacion = models.CharField(max_length=10,blank=True,null=True,choices=TIPO)
-	ayuda_si = models.PositiveIntegerField(default=0)
-	ayuda_no = models.PositiveIntegerField(default=0)
+	ayuda = models.BooleanField(default=False)
 
 	def get_usuario_id(self):
 		if self.usuario:
@@ -56,16 +55,16 @@ class ComentarioImagen(models.Model):
 	foto = models.ImageField(upload_to='comentario',blank=True,null=True,max_length=250)    
 
 #import sendgrid
-#from django.conf import settings
-#
-#class Suscrito(models.Model):
-	#email = models.CharField(max_length=100,blank=True,null=True)
-	#suscrito = models.BooleanField(default=True)
-	#usuario = models.BooleanField(default=True)
-	#cliente = models.ForeignKey(Cliente,blank=True,null=True)
-	#user = models.ForeignKey(User,blank=True,null=True)
-	#activo = models.BooleanField(default=True)
-#
+from django.conf import settings
+
+class Suscrito(models.Model):
+	email = models.CharField(max_length=100,blank=True,null=True)
+	suscrito = models.BooleanField(default=True)
+	usuario = models.BooleanField(default=True)
+	cliente = models.ForeignKey(Cliente,blank=True,null=True)
+	user = models.ForeignKey(User,blank=True,null=True)
+	activo = models.BooleanField(default=True)
+
 	#def save(self, *args, **kwargs):
 		#super(Suscrito, self).save(*args, **kwargs)
 		#sg = sendgrid.SendGridClient(settings.SENDGRID_API_KEY)
@@ -80,20 +79,20 @@ class ComentarioImagen(models.Model):
 		#message.add_filter('templates', 'template_id', '8b156242-0ca1-4f8f-a124-816297cbb2c1')
 #
 		#status, msg = sg.send(message)
-#
-#
-#class Favorito(models.Model):
-	#usuario = models.OneToOneField(User,null=True,blank=True,unique=True)
-	#producto = models.ForeignKey(Producto,blank=True,null=True,related_name='catalogo')
-	#date = models.DateTimeField(auto_now_add=True)
-#
-	#def __unicode__(self):
-		#return "%s - %s" %(self.usuario,self.producto)
-#
-#class Mayorista(models.Model):
-	#nombre = models.CharField(max_length=100)
-	#ruc = models.CharField(max_length=11,blank=True)
-	#direccion = models.CharField(max_length=40,blank=True)
-#
-	#def __unicode__(self):
-		#return self.nombre
+
+
+class Favorito(models.Model):
+	usuario = models.OneToOneField(User,null=True,blank=True,unique=True)
+	producto = models.ForeignKey(Producto,blank=True,null=True,related_name='catalogo')
+	date = models.DateTimeField(auto_now_add=True)
+
+	def __unicode__(self):
+		return "%s - %s" %(self.usuario,self.producto)
+
+class Mayorista(models.Model):
+	nombre = models.CharField(max_length=100)
+	ruc = models.CharField(max_length=11,blank=True)
+	direccion = models.CharField(max_length=40,blank=True)
+
+	def __unicode__(self):
+		return self.nombre

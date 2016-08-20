@@ -26,3 +26,4 @@ class CategoriaAdmin(admin.ModelAdmin):
 
 admin.site.register(Producto,ProductoAdmin)
 admin.site.register(Categoria,CategoriaAdmin)
+admin.site.register(Material)

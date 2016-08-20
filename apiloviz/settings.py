@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'catalogo',
     'cliente',
     'cms',    
+    'contabilidad',
     'pedido',
     'ubigeo',
     'utiles',
